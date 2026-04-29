@@ -1,0 +1,13 @@
+Source:
+  className: "org/service/webService"
+  methods:
+    - { methodName: "doGet", desc: "()V;"}
+Annotation:
+  classAnnotation: "Lorg/noear/solon/annotation/Mapping;"
+  classAttributes:
+    - {attribute: "*", value: "/*"} # 当属性设置为*时, 表示无需对其进行校验
+  methodAnnotation: "Lorg/noear/solon/annotation/Mapping;"
+  methodAttributes:
+    - {attribute: "*", value: "*"} # 当属性设置为*时, 表示无需对其进行校验
+
+

@@ -1,0 +1,22 @@
+VulnType: File
+URL: http://localhost:8080//bos/v1/barcodePrintdownloadTemplate
+Entry: com/burgeon/extention/framework/barcode/print/controller/BarcodePrintController#downloadTemplate()Lorg/springframework/http/ResponseEntity;
+EntryParameters: []
+Invocations:
+1. com/burgeon/extention/framework/barcode/print/controller/BarcodePrintController#downloadTemplate()Lorg/springframework/http/ResponseEntity; -> java/io/File#<init>(Ljava/lang/String;)V
+   receiver: new File(((((((((((((new StringBuilder() + this.getClass().getResource("/").ge...(183 chars)...") + File.separator) + "download") + File.separator) + "barcodeTemplate.xls"))
+   args: [((((((((((((new StringBuilder() + this.getClass().getResource("/").getPath().r...(199 chars)...s") + File.separator) + "download") + File.separator) + "barcodeTemplate.xls")]
+   line: 152
+   candidates: 1
+---------------------------
+VulnType: File
+URL: http://localhost:8080/control/uploadkey
+Entry: nds/control/web/reqhandler/UploadKeyHandler#processRequest(Ljavax/servlet/http/HttpServletRequest;)Ljava/util/Map;
+EntryParameters: [request:HttpServletRequest]
+Invocations:
+1. nds/control/web/reqhandler/UploadKeyHandler#processRequest(Ljavax/servlet/http/HttpServletRequest;)Ljava/util/Map; -> java/io/File#<init>(Ljava/lang/String;)V
+   receiver: new File((((((new StringBuilder() + DirectoryUtil.getLicDir()) + File.separato...(183 chars)...ilder)))) + DirectoryUtil.getLicDir()))) + File.separator))) + "ppk"))))))))))
+   args: [(((((new StringBuilder() + DirectoryUtil.getLicDir()) + File.separator) + "ppk...(351 chars)...uilder)))) + DirectoryUtil.getLicDir()))) + File.separator))) + "ppk")))))))))]
+   line: 68
+   candidates: 2
+---------------------------

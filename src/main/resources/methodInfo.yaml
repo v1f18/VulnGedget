@@ -1,0 +1,73 @@
+SSRF:
+  - className: "java/net/URL"
+    methods:
+      - { methodName: "<init>", desc: "(Ljava/lang/String;)V" }
+      - { methodName: "openConnection", desc: "()Ljava/net/URLConnection;" }
+      - { methodName: "openStream", desc: "()Ljava/io/InputStream;" }
+  - className: "java/net/HttpURLConnection"
+    methods:
+      - { methodName: "getInputStream", desc: "()Ljava/io/InputStream;" }
+  - className: "org/apache/http/client/methods/HttpGet"
+    methods:
+      - { methodName: "<init>", desc: "(Ljava/lang/String;)V" }
+  - className: "org/apache/http/impl/client/CloseableHttpClient"
+    methods:
+      - { methodName: "execute", desc: "(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/client/methods/CloseableHttpResponse;" }
+  - className: "java/net/Socket"
+    methods:
+      - { methodName: "<init>", desc: "(Ljava/lang/String;I)V" }
+      - { methodName: "getInputStream", desc: "()Ljava/io/InputStream;" }
+  - className: "okhttp/Request$Builder"
+    methods:
+      - { methodName: "url", desc: "(Ljava/lang/String;)Lokhttp3/Request$Builder;" }
+      - { methodName: "url", desc: "(Ljava/lang/String;)Lokhttp/Request$Builder;" }
+      - { methodName: "build", desc: "()Lokhttp3/Request;" }
+      - { methodName: "build", desc: "()Lokhttp/Request;" }
+  - className: "okhttp3/Request$Builder"
+    methods:
+      - { methodName: "url", desc: "(Ljava/lang/String;)Lokhttp3/Request$Builder;" }
+      - { methodName: "url", desc: "(Ljava/lang/String;)Lokhttp/Request$Builder;" }
+      - { methodName: "build", desc: "()Lokhttp3/Request;" }
+      - { methodName: "build", desc: "()Lokhttp/Request;" }
+RCE:
+  - className: "java/lang/Runtime"
+    methods:
+      - { methodName: "exec", desc: "(Ljava/lang/String;)Ljava/lang/Process;" }
+  - className: "java/lang/ProcessBuilder"
+    methods:
+      - { methodName: "<init>", desc: "([Ljava/lang/String;)V" }
+      - { methodName: "start", desc: "()Ljava/lang/Process;" }
+  - className: "groovy/lang/GroovyShell"
+    methods:
+      - { methodName: "evaluate", desc: "(Ljava/lang/String;)Ljava/lang/Object;" }
+Deserialization:
+  - className: "java/io/ObjectInputStream"
+    methods:
+      - { methodName: "readObject", desc: "()Ljava/lang/Object;" }
+XXE:
+  - className: "org/xml/sax/XMLReader"
+    methods:
+      - { methodName: "parse", desc: "(Ljava/lang/String;)V" }
+      - { methodName: "parse", desc: "(Lorg/xml/sax/InputSource;)V" }
+  - className: "org/jdom2/input/SAXBuilder"
+    methods:
+      - { methodName: "build", desc: "(Lorg/xml/sax/InputSource;)Lorg/jdom2/Document;" }
+  - className: "javax/xml/parsers/SAXParser"
+    methods:
+      - { methodName: "parse", desc: "(Lorg/xml/sax/InputSource;Lorg/xml/sax/helpers/DefaultHandler;)V" }
+  - className: "org/dom4j/io/SAXReader"
+    methods:
+      - { methodName: "read", desc: "(Lorg/xml/sax/InputSource;)Lorg/xml/sax/helpers/DefaultHandler;" }
+  - className: "org/apache/commons/digester3/Digester"
+    methods:
+      - { methodName: "parse", desc: "(Ljava/io/Reader;)Ljava/lang/Object;" }
+FileVuln:
+  - className: "java/io/File"
+    methods:
+      - { methodName: "<init>", desc: "(Ljava/io/File;Ljava/lang/String;)V"}
+      - { methodName: "<init>", desc: "(Ljava/lang/String;)V"}
+Sql:
+  - className: "java/sql/Statement"
+    methods:
+      - { methodName: "executeQuery", desc: "(Ljava/lang/String;)Ljava/sql/ResultSet;"}
+

@@ -1,0 +1,54 @@
+{
+	"File":[
+		{
+			"entryClassName":"com/burgeon/extention/framework/barcode/print/controller/BarcodePrintController",
+			"entryDesc":"()Lorg/springframework/http/ResponseEntity;",
+			"entryMethodName":"downloadTemplate",
+			"entryParameters":[],
+			"invocations":[
+				{
+					"arguments":[
+						"((((((((((((new StringBuilder() + this.getClass().getResource(\"/\").getPath().r...(199 chars)...s\") + File.separator) + \"download\") + File.separator) + \"barcodeTemplate.xls\")"
+					],
+					"calleeClassName":"java/io/File",
+					"calleeDesc":"(Ljava/lang/String;)V",
+					"calleeMethodName":"<init>",
+					"callerClassName":"com/burgeon/extention/framework/barcode/print/controller/BarcodePrintController",
+					"callerDesc":"()Lorg/springframework/http/ResponseEntity;",
+					"callerMethodName":"downloadTemplate",
+					"candidateCount":1,
+					"lineNumber":152,
+					"receiver":"new File(((((((((((((new StringBuilder() + this.getClass().getResource(\"/\").ge...(183 chars)...\") + File.separator) + \"download\") + File.separator) + \"barcodeTemplate.xls\"))"
+				}
+			],
+			"url":"http://localhost:8080//bos/v1/barcodePrintdownloadTemplate",
+			"vulnType":"File"
+		},
+		{
+			"entryClassName":"nds/control/web/reqhandler/UploadKeyHandler",
+			"entryDesc":"(Ljavax/servlet/http/HttpServletRequest;)Ljava/util/Map;",
+			"entryMethodName":"processRequest",
+			"entryParameters":[
+				"request:HttpServletRequest"
+			],
+			"invocations":[
+				{
+					"arguments":[
+						"(((((new StringBuilder() + DirectoryUtil.getLicDir()) + File.separator) + \"ppk...(351 chars)...uilder)))) + DirectoryUtil.getLicDir()))) + File.separator))) + \"ppk\")))))))))"
+					],
+					"calleeClassName":"java/io/File",
+					"calleeDesc":"(Ljava/lang/String;)V",
+					"calleeMethodName":"<init>",
+					"callerClassName":"nds/control/web/reqhandler/UploadKeyHandler",
+					"callerDesc":"(Ljavax/servlet/http/HttpServletRequest;)Ljava/util/Map;",
+					"callerMethodName":"processRequest",
+					"candidateCount":2,
+					"lineNumber":68,
+					"receiver":"new File((((((new StringBuilder() + DirectoryUtil.getLicDir()) + File.separato...(183 chars)...ilder)))) + DirectoryUtil.getLicDir()))) + File.separator))) + \"ppk\"))))))))))"
+				}
+			],
+			"url":"http://localhost:8080/control/uploadkey",
+			"vulnType":"File"
+		}
+	]
+}
